@@ -13,8 +13,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.Model;
 import seedu.address.model.person.exceptions.AppointmentNotFoundException;
 import seedu.address.model.person.exceptions.DuplicateAppointmentException;
+import seedu.address.testutil.TypicalAppointments;
+import seedu.address.testutil.TypicalPersons;
 
 public class UniqueAppointmentListTest {
 

@@ -15,9 +15,11 @@ import java.util.List;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.Model;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.testutil.PersonBuilder;
+import seedu.address.testutil.TypicalPersons;
 
 public class UniquePersonListTest {
 
@@ -166,5 +168,14 @@ public class UniquePersonListTest {
     public void asUnmodifiableObservableList_modifyList_throwsUnsupportedOperationException() {
         assertThrows(UnsupportedOperationException.class, ()
             -> uniquePersonList.asUnmodifiableObservableList().remove(0));
+    }
+
+    @Test
+    public void setPersonsSortByGivenComparator() {
+        uniquePersonList.setPersons(TypicalPersons.getTypicalPersons());
+        uniquePersonList.sort(Model.COMPARATOR_GROUP_PATIENTS);
+        assertEquals(TypicalPersons.getTypicalGroupedPersons(), uniquePersonList.asUnmodifiableObservableList());
+        uniquePersonList.sort(Model.COMPARATOR_UNGROUP_PATIENTS);
+        assertEquals(TypicalPersons.getTypicalPersons(), uniquePersonList.asUnmodifiableObservableList());
     }
 }

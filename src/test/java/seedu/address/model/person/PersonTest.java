@@ -9,12 +9,11 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_EAR;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalPersons.ALICE;
-import static seedu.address.testutil.TypicalPersons.BOB;
-import static seedu.address.testutil.TypicalPersons.DANIEL;
+import static seedu.address.testutil.TypicalPersons.*;
 
 import org.junit.jupiter.api.Test;
 
+import seedu.address.model.tag.Tag;
 import seedu.address.testutil.PersonBuilder;
 
 public class PersonTest {
@@ -105,6 +104,17 @@ public class PersonTest {
 
     @Test
     public void groupCompares() {
+        // Same tag group
         assertEquals(ALICE.groupCompareTo(DANIEL), -1);
+        assertEquals(BENSON.groupCompareTo(GEORGE), -1);
+
+        // Single tag vs no tag
+        assertEquals(CARL.groupCompareTo(ELLE), -11);
+
+        // Single tag vs single tag
+        assertEquals(ALICE.groupCompareTo(ELLE), 9);
+
+        // Single tag vs double tag
+        assertEquals(BENSON.groupCompareTo(ELLE), 29);
     }
 }
