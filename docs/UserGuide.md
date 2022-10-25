@@ -59,15 +59,20 @@ Examples:
 
 ### Listing all patients/appointments : `list`
 
+<<<<<<< HEAD
 Shows a list of all patients or appointments, depending on the parameter given. \
 If it is a patient list, then patients will be sorted by their names first; if there are people with the same name, they will be sorted by their 
 phone numbers. \
 If it is an appointment list, then appointments will be sorted by their datetime first; if there are appointments 
 with the same datetime, they will be sorted by their attached patients' information.
+=======
+Shows a list of all patients and/or appointments, depending on the parameter given.
+>>>>>>> 3342f3c9e33241fb5e5c09ffc956718eb3c13845
 
 Format:
-* `list patients`
-* `list appts`
+* `list patients` - Refreshes only the patient list to show all patients, leaving the appointment list unchanged.
+* `list appts` - Refreshes only the appointment list to show all appointments, leaving the patient list unchanged.
+* `list all` - Refreshes both the patient and appointment lists to show all patients and appointments.
 
 ### Grouping all patients : `group patients`
 
